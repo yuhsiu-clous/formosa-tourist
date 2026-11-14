@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
-<title>花園夜市 The Garden Night Market</title>
+<title>花園夜市 The Garden Night Market | Tainan 臺南</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
@@ -232,7 +232,7 @@ const cov=$("cover");
 const CP=D.cover!=null?D.photos[D.cover]:null;
 cov.className="cover"+(CP?"":" noimg");
 cov.innerHTML=(CP?`<img src="${CP.src}" alt="${E(D.name.zh)}"><div class="shade"></div>`:"")+
- `<div class="txt wrap"><div class="crumb"><a href="index.html">福爾摩沙小導遊</a><span>臺南・${E(D.district)}</span></div><h1>${E(D.name.zh)}<span class="en">${E(D.name.en)}</span></h1></div>`;
+ `<div class="txt wrap"><div class="crumb"><a href="index.html">福爾摩沙小導遊</a><span>臺南 Tainan・${E(D.district)}</span></div><h1>${E(D.name.zh)}<span class="en">${E(D.name.en)}</span></h1></div>`;
 $("lede").innerHTML=`<p>${E(D.intro.zh)}</p><p class="le">${E(D.intro.en)}</p>`;
 
 /* ---- one-minute video ---- */

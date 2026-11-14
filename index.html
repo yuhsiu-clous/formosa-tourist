@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="福爾摩沙小導遊遊客版：臺南 105 個景點，一分鐘影片、中英文介紹、實景照片、散步路線。Little Guides of Formosa visitor edition: 105 places in Tainan with short videos, bilingual stories, photos and walking routes."><title>福爾摩沙小導遊 遊客版</title><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>臺南遊客導覽 Tainan Visitor Guide | 福爾摩沙小導遊</title><meta name="description" content="臺南 105 個景點：一分鐘影片、中英文介紹、實景照片、散步路線。Tainan Visitor Guide: 105 places with short videos, bilingual stories, real photos and walking routes."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&display=swap">
@@ -129,11 +129,12 @@ h2{flex-wrap:wrap;column-gap:10px;row-gap:0}
 h2 small{font-size:20px;color:var(--ink);font-weight:600}
 #list h2 small{flex-basis:100%}
 .rbody .en2,.how span{font-size:14px}
+.brand{margin:0 0 8px!important;font-weight:700;color:var(--brick)!important}
 :focus-visible{outline:3px solid var(--sea);outline-offset:2px}
 </style>
 <header class="wrap">
-  <div class="kick">VISITOR EDITION・遊客版・臺南 <span id="count"></span> 個景點</div>
-  <h1>福爾摩沙小導遊<span class="h1en">Little Guides of Formosa</span></h1>
+  <div class="kick"><span id="count"></span> 個景點・<span class="cnt2"></span> PLACES</div>
+  <h1>臺南遊客導覽<span class="h1en">Tainan Visitor Guide</span></h1><p class="brand">福爾摩沙小導遊 Little Guides of Formosa</p>
   <p>每個景點一頁：一分鐘動畫影片、景點介紹、實景照片，按 🔊 可收聽英文。<br>One page per site: a one-minute animated intro, the story of the place and real photos. Tap 🔊 to hear the English.</p>
   <div class="modes"><button type="button" data-go="routes"><b>🚶 照路線散步</b><small>Walk a route</small></button><button type="button" data-go="d0"><b>📍 找景點</b><small>Find a place</small></button></div>
   <p class="how">想順路走完一區，選<b>路線</b>，照編號一站一站走；想查某個景點，從<b>分區</b>找。每個景點頁最下面都有「上一站・下一站」，看完可以接著走。<br><span>Pick a route to walk stop by stop, or find a place by district. Every place page ends with the previous and next stop.</span></p>
@@ -307,7 +308,7 @@ const D=JSON.parse(document.getElementById("data").textContent);
 const HOST=JSON.parse(document.getElementById("host").textContent),HERE=new Set(HOST.here),OTHER=HOST.other;
 (function(){const h=(location.hash||"").slice(1);if(h&&HERE.has(h))location.replace(h+".html")})();
 const E=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-document.getElementById("count").textContent=D.length;const by={};D.forEach(s=>(by[s.district]=by[s.district]||[]).push(s));
+document.getElementById("count").textContent=D.length;document.querySelector(".cnt2").textContent=D.length;const by={};D.forEach(s=>(by[s.district]=by[s.district]||[]).push(s));
 const R=JSON.parse(document.getElementById("routes-data").textContent),BY={};D.forEach(s=>BY[s.slug]=s);
 const DN=d=>d==="大臺南"?"大臺南":"臺南・"+d, DEN={"中西區":"West Central","安平區":"Anping","東區":"East","北區":"North","安南區":"Annan","大臺南":"Greater Tainan"}, SHORT=d=>(d==="安平區"?"安平":d==="安南區"?"安南":d)+" "+(DEN[d]||"");
 const href=s=>HERE.has(s.slug)?E(s.slug)+".html":E(OTHER)+"#"+E(s.slug), tgt=s=>HERE.has(s.slug)?"":' target="_blank" rel="noopener"';
