@@ -101,6 +101,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.3}
 .para .pz b{font-family:var(--display);font-weight:800;color:var(--ink)}
 .para .pe{display:flex;gap:8px;align-items:flex-start;color:var(--muted);font-size:15px}
 .para .pe b{color:var(--brick);font-weight:700}
+.para .ln{display:block}.para .ln+.ln{margin-top:6px}
 .refs{display:flex;gap:8px;flex-wrap:wrap}
 .refs button{border:0;padding:0;background:none;border-radius:8px;overflow:hidden;width:92px;height:64px}
 .refs img{width:100%;height:100%;object-fit:cover}
@@ -266,7 +267,7 @@ if(!A)$("hSec").hidden=true;else{
 
 /* ---- article: paragraphs ---- */
 const P=D.photos;
-const run=(t,x,sep)=>{if(t&&x.startsWith(t))x=x.slice(t.length).replace(/^[：:，,\s]+/,"");return t?`<b>${E(t)}</b>${sep}${E(x)}`:E(x)};
+const run=(t,x,sep)=>{x=x.replace(/\s*（[^（）]*照片：[^（）]*）/g,"");if(t&&x.startsWith(t))x=x.slice(t.length).replace(/^[：:，,\s]+/,"");return t?`<span class="ln"><b>${E(t)}</b>${sep}${E(x)}</span>`:`<span class="ln">${E(x)}</span>`};
 $("article").innerHTML=D.sections.map(se=>`<div class="part">${D.sections.length>1?`<h3>${E(se.zh)}<span class="en">${E(se.en)}</span></h3>`:""}
  ${se.p.map(p=>`<div class="para"><p class="pz">${p.zh.map(([t,x])=>run(t,x,"：")).join(" ")}</p>
    <p class="pe"><span>${p.en.map(([t,x])=>run(t,x,": ")).join(" ")}</span>${sayBtn(p.a)}</p>
